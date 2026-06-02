@@ -58,7 +58,7 @@ predicting_word_count = 3
 
 for _ in range(predicting_word_count):
 
-    token_list = tokenizer.texts_to_sequences([input_text])[0]
+    token_list = my_tokenizer.texts_to_sequences([input_text])[0]
 
     token_list = pad_sequences(
         [token_list],
@@ -68,7 +68,7 @@ for _ in range(predicting_word_count):
 
     predicted = np.argmax(model.predict(token_list), axis=1)[0]
 
-    output_word = tokenizer.index_word.get(predicted, "")
+    output_word = my_tokenizer.index_word.get(predicted, "")
 
     input_text += " " + output_word
 
